@@ -37,7 +37,6 @@ func WallsAndGates(array [][]int) {
 		}
 	}
 
-	//fmt.Printf("Doors are: %v\n", workNodes)
 	for len(workNodes) > 0 {
 		nextWorkNodes := []node{}
 		for _, w := range workNodes {
@@ -49,7 +48,6 @@ func WallsAndGates(array [][]int) {
 				}
 			}
 		}
-		//fmt.Printf("next nodes are: %v\n", nextWorkNodes)
 		workNodes = nextWorkNodes
 	}
 }
