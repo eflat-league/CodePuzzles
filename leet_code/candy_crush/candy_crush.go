@@ -11,7 +11,6 @@ func Stabilize(board [][]int) [][]int {
 
 //given a rectangular 2d board, drops candy in each column down, treating 0 as empty space, and filling
 //freed up space with 0
-//does this in-place, modifying the board slice
 func dropCandy(board [][]int) [][]int {
 	if len(board) == 0 {
 		return [][]int{}
