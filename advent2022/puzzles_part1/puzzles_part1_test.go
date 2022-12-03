@@ -1,6 +1,7 @@
-package day1_puzzle1
+package puzzles_part1
 
 import (
+	"fmt"
 	"github.com/google/go-cmp/cmp"
 	"reflect"
 	"testing"
@@ -45,6 +46,11 @@ func TestGetCaloriesPerElf(t *testing.T) {
 	}
 }
 
-func TestSolvePuzzle(t *testing.T) {
-	solvePuzzle()
+func TestCaloriesPuzzle(t *testing.T) {
+	caloriesPuzzle()
+}
+
+func TestRockPaperScissorsPuzzle(t *testing.T) {
+	fmt.Println(rockPaperScissorsPuzzle(COMBO_FOR_CHOICE))
+	fmt.Println(rockPaperScissorsPuzzle(COMBO_FOR_OUTCOME))
 }

@@ -1,4 +1,4 @@
-package day1_puzzle1
+package puzzles_part1
 
 import (
 	"bufio"
@@ -13,8 +13,44 @@ type Elf struct {
 	calories int
 }
 
-func solvePuzzle() {
-	input := runPuzzleInput()
+//combinations A,X(rock) = 1, B,Y(paper) = 2, C,Z(scissors) = 3, win = 6, draw = 3
+var COMBO_FOR_CHOICE = map[string]int{
+	"A X": 4,
+	"A Y": 8,
+	"A Z": 3,
+	"B X": 1,
+	"B Y": 5,
+	"B Z": 9,
+	"C X": 7,
+	"C Y": 2,
+	"C Z": 6,
+}
+
+//combinations A(rock) = 1, B(paper) = 2, C(scissors) = 3, win = 6, draw = 3, lose = 0, X = lose, Y = draw, Z = win
+var COMBO_FOR_OUTCOME = map[string]int{
+	"A X": 3,
+	"A Y": 4,
+	"A Z": 8,
+	"B X": 1,
+	"B Y": 5,
+	"B Z": 9,
+	"C X": 2,
+	"C Y": 6,
+	"C Z": 7,
+}
+
+func rockPaperScissorsPuzzle(combos map[string]int) int {
+
+	input := runPuzzleInput("./rockPaperScissors")
+	total := 0
+	for _, line := range input {
+		total += combos[line]
+	}
+	return total
+}
+
+func caloriesPuzzle() {
+	input := runPuzzleInput("./puzzle_input")
 	topMunchers := getElfWithTheMost(getCaloriesPerElf(input), 3)
 
 	fmt.Printf("Top munchers %v\n", topMunchers)
@@ -65,10 +101,10 @@ func getCaloriesPerElf(input []string) []int {
 	return result
 }
 
-func runPuzzleInput() []string {
+func runPuzzleInput(path string) []string {
 	result := []string{}
 
-	file, err := os.Open("./puzzle_input")
+	file, err := os.Open(path)
 	if err != nil {
 		panic(err)
 	}
