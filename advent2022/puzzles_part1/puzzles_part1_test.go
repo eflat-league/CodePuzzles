@@ -54,3 +54,12 @@ func TestRockPaperScissorsPuzzle(t *testing.T) {
 	fmt.Println(rockPaperScissorsPuzzle(COMBO_FOR_CHOICE))
 	fmt.Println(rockPaperScissorsPuzzle(COMBO_FOR_OUTCOME))
 }
+
+func TestGetIntCharacterCode(t *testing.T) {
+	fmt.Println(getIntCharacterCode('z'))
+	fmt.Println(getIntCharacterCode('Z'))
+}
+
+func TestFindBackpackDuplicateItem(t *testing.T) {
+	fmt.Println(findBackpackDuplicateItem())
+}
